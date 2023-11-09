@@ -1,0 +1,23 @@
+-- Core API functions implemented in Lua
+-- Load storages first
+dofile(DATA_DIRECTORY .. "/lib/core/load.lua")
+
+-- Compatibility library for our old Lua API
+dofile(DATA_DIRECTORY .. "/lib/compat/compat.lua")
+
+-- Tables library
+dofile(DATA_DIRECTORY .. "/lib/tables/load.lua")
+
+-- Others library
+dofile(DATA_DIRECTORY .. "/lib/others/load.lua")
+
+-- Quests library
+dofile(DATA_DIRECTORY .. "/lib/quests/quest.lua")
+-- Boss Eye library
+dofile(DATA_DIRECTORY .. '/lib/custom/boss_eye.lua')
+-- Vip System library
+dofile(DATA_DIRECTORY .. "/lib/vip/vip_system.lua")
+-- Quests library
+dofile(DATA_DIRECTORY .. '/lib/custom/simple_crafting_system.lua')
+-- Task Custom
+dofile(DATA_DIRECTORY.. '/scripts/custom/load.lua')
