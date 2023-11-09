@@ -129,7 +129,6 @@ monster.loot = {
 	{ name = "honeycomb", chance = 4000 },
 	{ name = "lump of cake dough", chance = 7000, maxCount = 3 },
 	{ name = "valentine's cake", chance = 1500 },
-	{ name = "christmas present bag", chance = 7000 },
 	{ name = "gingerbreadman", chance = 4000, maxCount = 2 },
 	{ name = "walnut", chance = 3500, maxCount = 5 },
 	{ name = "peanut", chance = 3500, maxCount = 100 },

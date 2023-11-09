@@ -10,6 +10,8 @@ function loginEvents.onLogin(player)
 		"FamiliarLogin",
 		"FamiliarAdvance",
 		--Quests
+		-- Custom Events
+		"TaskCreature",
 		--Cults Of Tibia Quest
 		"LeidenHeal",
 		"HealthPillar",

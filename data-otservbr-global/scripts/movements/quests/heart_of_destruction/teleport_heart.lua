@@ -19,19 +19,19 @@ local accessVortex = {
 	[14323] = {
 		position = Position(32246, 31252, 14),
 		storage = 14320,
-		boss = "Anomaly",
+		storageTime = 14321
 	},
 	-- Rupture enter
 	[14342] = {
 		position = Position(32305, 31249, 14),
 		storage = 14322,
-		boss = "Rupture",
+		storageTime = 14323
 	},
 	-- Realityquake enter
 	[14344] = {
 		position = Position(32181, 31240, 14),
 		storage = 14324,
-		boss = "Realityquake",
+		storageTime = 14325
 	},
 }
 
@@ -42,7 +42,7 @@ local finalBosses = {
 		storage1 = 14326,
 		storage2 = 14327,
 		storage3 = 14328,
-		boss = "Eradicator",
+		storageTime = 14329
 	},
 	-- Outburst enter
 	[14349] = {
@@ -50,8 +50,8 @@ local finalBosses = {
 		storage1 = 14326,
 		storage2 = 14327,
 		storage3 = 14328,
-		boss = "Outburst",
-	},
+		storageTime = 14331
+	}
 }
 
 local teleportHeart = MoveEvent()
@@ -69,7 +69,7 @@ function teleportHeart.onStepIn(creature, item, position, fromPosition)
 		player:teleportTo(normalVortex)
 	elseif bossVortex then
 		if player:getStorageValue(bossVortex.storage) >= 1 then
-			if player:canFightBoss(bossVortex.boss) then
+			if player:getStorageValue(bossVortex.storageTime) < os.time() then
 				player:teleportTo(bossVortex.position)
 			else
 				player:teleportTo(fromPosition)
@@ -80,8 +80,10 @@ function teleportHeart.onStepIn(creature, item, position, fromPosition)
 			player:sendTextMessage(19, "You don't have access to this portal.")
 		end
 	elseif uBosses then
-		if player:getStorageValue(uBosses.storage1) >= 1 and player:getStorageValue(uBosses.storage2) >= 1 and player:getStorageValue(uBosses.storage3) >= 1 then
-			if player:canFightBoss(uBosses.boss) then
+		if player:getStorageValue(uBosses.storage1) >= 1
+				and player:getStorageValue(uBosses.storage2) >= 1
+				and player:getStorageValue(uBosses.storage3) >= 1 then
+			if player:getStorageValue(uBosses.storageTime) < os.time() then
 				player:teleportTo(uBosses.position)
 			else
 				player:teleportTo(fromPosition)
@@ -92,8 +94,9 @@ function teleportHeart.onStepIn(creature, item, position, fromPosition)
 			player:sendTextMessage(19, "You don't have access to this portal.")
 		end
 	elseif item.actionid == 14351 then
-		if player:getStorageValue(14330) >= 1 and player:getStorageValue(14332) >= 1 then
-			if player:canFightBoss("World Devourer") then
+		if player:getStorageValue(14330) >= 1
+				and player:getStorageValue(14332) >= 1 then
+			if player:getStorageValue(14333) < os.time() then
 				player:teleportTo(Position(32272, 31384, 14))
 			else
 				player:teleportTo(fromPosition)
